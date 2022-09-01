@@ -60,6 +60,11 @@ def ingest_campaugns_data():
      campains_data = pd.read_csv('/opt/airflow/data/campaigns_inventory_updated.csv')
      campains_data.to_sql("campains_table",con= engine,if_exists="replace",index=False)
 
+def ingest_global_design_data():
+    pg_hook = PostgresHook(postgres_conn_id="ad_challenge")
+    engine = pg_hook.get_sqlalchemy_engine()
+    global_data = pd.read_csv('/opt/airflow/data/global_design_data.csv')
+    global_data.to_sql("global_design",con= engine,if_exists="replace",index=False)
 
 
 with DAG(
@@ -122,6 +127,16 @@ with DAG(
                 )
             """,
     )
+    create_global_design_table_op =PostgresOperator(
+        task_id ="create_global_design_table",
+        postgres_conn_id = "ad_challenge",
+        sql = """
+        create table if not exists global_design (game_key text,labels text,text_ text,colors text,
+                        video_data text,eng_type text,direction text,
+                        adunit_size_X text, adunit_size_y text )
+        """,
+
+    )
     ingest_briefing_data_op = PythonOperator(
         task_id="ingest_briefing_data",
         python_callable=ingest_briefing_data
@@ -131,5 +146,10 @@ with DAG(
         python_callable=ingest_campaugns_data
     )
 
+    ingest_global_design_data_op = PythonOperator(
+        task_id = "ingest_global_data",
+        python_callable=ingest_global_design_data
+    )
 
-chain(start,[create_briefing_table_op,create_campaigns_inventory_table_op],[ingest_briefing_data_op,ingest_campaigns_inventory_data_op],end )
+
+chain(start,[create_briefing_table_op,create_campaigns_inventory_table_op,create_global_design_table_op],[ingest_briefing_data_op,ingest_campaigns_inventory_data_op,ingest_global_design_data_op],end )
