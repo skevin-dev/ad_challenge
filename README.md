@@ -86,6 +86,10 @@ Make sure you have docker installed on local machine.
 ### dbt data lineage
 ![data lineage](https://github.com/skevin-dev/ad_challenge/blob/main/pics/dbt-dag.png)
 
+### DBT documentation
+https://rad-lolly-5b57cf.netlify.app/#!/overview
+
+
 <!-- CONTRIBUTING -->
 ## Contributing
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
