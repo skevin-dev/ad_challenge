@@ -80,6 +80,12 @@ Make sure you have docker installed on local machine.
     Navigate to `http://localhost:8089/` on the browser
     activate and trigger ingestion_data
     ```
+### Airflow data lineage 
+![data lineage](https://github.com/skevin-dev/ad_challenge/blob/main/pics/airflow_lineage.PNG)
+
+### dbt data lineage
+![data lineage](https://github.com/skevin-dev/ad_challenge/blob/main/pics/dbt-dag.png)
+
 <!-- CONTRIBUTING -->
 ## Contributing
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
