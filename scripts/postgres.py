@@ -15,3 +15,40 @@ class PostgresDBUtils:
     4. execute_fetch_db: to fetch data from a table in database
 
     """
+
+    def __init__(self):
+        """instantiate our class
+
+        Attributes
+        ---------
+        conn: database connection
+        cursor: cursor object 
+
+        Paramas
+        -------
+
+        None
+
+        returns
+        -------
+
+        None
+        """
+
+        try:
+            # establishing connection
+
+            self.conn = psycopg2.connect(
+                     database="airflow", user='airflow', password='airflow', 
+                     host='localhost', port= '5432'   
+                     )
+
+            self.autocommit = True
+
+            #cursor object creation using cursor method 
+            self.cursor = self.conn.cursor()
+
+        except Exception as e:
+            pass 
+
+        
