@@ -1,5 +1,6 @@
 import psycopg2
 import pandas as pd 
+from .App_log import logger
 
 
 class PostgresDBUtils:
@@ -45,6 +46,7 @@ class PostgresDBUtils:
 
             #cursor object creation using cursor method 
             self.cursor = self.conn.cursor()
+            logger.info("establishing connection successfully")
 
         except Exception as e:
             pass 
@@ -67,7 +69,7 @@ class PostgresDBUtils:
         sql = f'''CREATE database ${db_name}'''
         # Creating a database
         self.cursor.execute(sql)
-
+        logger.info("databases creation")
     def db_execute_fetch(self, table_name='', return_df=True) -> pd.DataFrame:
         """Fetches dataframe from a table with the specified name.
 
@@ -107,6 +109,8 @@ class PostgresDBUtils:
         else:
             return result
 
+        logger.info("data fetched successfully")
+        
     def close_connection(self):
         """
         Close the connection with the database.
