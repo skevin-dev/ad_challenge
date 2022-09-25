@@ -106,11 +106,13 @@ class PostgresDBUtils:
 
         if return_df:
             return pd.DataFrame(result, columns=field_names)
+            logger.info(f"data from {table_name} fetched successfully")
+
         else:
             return result
 
         logger.info("data fetched successfully")
-        
+
     def close_connection(self):
         """
         Close the connection with the database.
