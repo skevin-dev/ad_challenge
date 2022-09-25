@@ -78,7 +78,7 @@ Make sure you have docker installed on local machine.
 ![data lineage](https://github.com/skevin-dev/ad_challenge/blob/main/pics/dbt-dag.png)
 
 ### DBT documentation
-https://rad-lolly-5b57cf.netlify.app/#!/overview
+https://curious-wisp-482466.netlify.app
 
 
 <!-- CONTRIBUTING -->
