@@ -28,21 +28,12 @@
 A dockerized Extract, Transform, Load (ETL) pipeline with PostgreSQL, Airflow, and DBT.
 
 
-### Task - 1
-#### Data Engineering Task
+#### Data Engineering Tasks
 - Ingestion of given raw data into a data lake of your choice.
 - Modeling the data to reduce the memory process and improve the performance of fetch queries.
 - ETL pipeline to enrich your data into a data warehouse following your models.
 - Validator to validate the correctness of your data for the ETL pipeline.
-- And finally, an interface to expose your actionable data for the Machine learning task.
-
-### Task - 2
-#### Machine Learning Task
-- EDA
-- Visualization
-- Data Cleaning
-- Feature Extraction
-- Modeling
+- And finally, an interface to expose your actionable data for the Machine learning purposes. 
 
 Tech Stack used in this project
 * [![Docker][Docker.com]][Docker-url]
