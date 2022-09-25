@@ -51,4 +51,17 @@ class PostgresDBUtils:
         except Exception as e:
             pass 
 
+    def create_db(self, db_name: str) -> None:
+        """Creates a database with the specified database name.
         
+        Parameters
+        ----------
+        db_name : str
+            The name of the database we are creating
+        """
+
+        # Preparing query to create a database
+        sql = f'''CREATE database ${db_name}'''
+        # Creating a database
+        self.cursor.execute(sql)
+
